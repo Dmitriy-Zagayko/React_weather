@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+		font-size: 14px;
+    color: white;
+    background-color: #0b0083;
+		& img{
+			justify-content: start;
+			width: 35px;
+			padding: 5px 0px 5px 5px;
+		}
+		& h1 {
+			width: 100%;
+			text-align: center;
+		}
+}
