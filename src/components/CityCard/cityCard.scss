@@ -1,0 +1,18 @@
+li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .5rem 1rem;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	margin: .5rem 0;
+	& button {
+		width: 25px;
+		height: 25px;
+		padding: 0;
+		background-color: rebeccapurple;
+		border-radius: 20px;
+		color: #fff;
+		border: none;
+	}
+}
