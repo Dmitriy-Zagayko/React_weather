@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import ListOfCards from '../ListOfCards';
 import Context from '../helpers/context';
@@ -6,14 +6,16 @@ import AddCityCard from '../AddCityCard/AddCityCard';
 import './app.scss';
 
 const App = () => {
-	const [cards, setCards] = useState([
-		{ id: 1, nameCity: 'Kharkiv' },
-		{ id: 2, nameCity: 'Kiev' },
-	]);
+	const [cards, setCards] = useState([]);
 
-	const deleteCard = (id) => {
-		setCards(cards.filter((card) => card.id !== id));
-	};
+	useEffect(() => {
+		const card = localStorage.getItem('cards') || [];
+		setCards(JSON.parse(card));
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('cards', JSON.stringify(cards));
+	}, [cards]);
 
 	const addCard = (nameCity) => {
 		setCards(
@@ -24,6 +26,10 @@ const App = () => {
 				},
 			]),
 		);
+	};
+
+	const deleteCard = (id) => {
+		setCards(cards.filter((card) => card.id !== id));
 	};
 
 	return (
