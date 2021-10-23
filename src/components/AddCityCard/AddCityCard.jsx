@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
 import Button from '../Button';
+import { gettingWeather } from '../helpers/request';
 import './addCityCard.scss';
 
 const AddCityCard = ({ onCreate }) => {
@@ -10,6 +11,7 @@ const AddCityCard = ({ onCreate }) => {
 		e.preventDefault();
 		if (value.trim()) {
 			onCreate(value);
+			gettingWeather(e, value);
 			setValue('');
 		}
 	};
