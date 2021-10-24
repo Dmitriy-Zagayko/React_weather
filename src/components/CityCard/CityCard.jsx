@@ -6,22 +6,34 @@ import './cityCard.scss';
 
 const CityCard = ({ cards }) => {
 	const { deleteCard } = useContext(Context);
+	// const infoWeather = cards.data.weather.map((i) => {
+	// 	return <p>{i.main}{i.description}</p>;
+	// });
+
 	return (
-		<div>
-			{
-				cards.nameCity
-				&& (
-					<div>
-						<p>{cards.nameCity}</p>
-						<p>{cards.data.main.temp.toFixed(0)}</p>
-						<p>{cards.data.sys.country}</p>
-					</div>
-				)
-			}
+		<div className="cards">
 			<Button
 				title={'\u00d7'}
 				onClick={deleteCard.bind(null, cards.id)}
 			/>
+			<div className='card'>
+				{
+					cards.nameCity
+					&& (
+						<div>
+							<h1>{cards.nameCity}</h1>
+							<h3>{cards.data.sys.country}</h3>
+							<h3>
+								{cards.data.main.temp.toFixed(0)}
+								°
+							</h3>
+						</div>
+					)
+				}
+				<Button
+					title='More'
+				/>
+			</div>
 		</div>
 	);
 };
