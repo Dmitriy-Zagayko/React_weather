@@ -1,40 +1,56 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import Context from '../helpers/context';
+import Modal from '../Modal';
 import './cityCard.scss';
 
 const CityCard = ({ cards }) => {
 	const { deleteCard } = useContext(Context);
-	// const infoWeather = cards.data.weather.map((i) => {
-	// 	return <p>{i.main}{i.description}</p>;
-	// });
+	const [modalHide, setModalHide] = useState(false);
 
+	const openModal = () => {
+		setModalHide(true);
+	};
+
+	const closeModal = () => {
+		setModalHide(false);
+	};
+	
 	return (
-		<div className="cards">
-			<Button
-				title={'\u00d7'}
-				onClick={deleteCard.bind(null, cards.id)}
-			/>
-			<div className='card'>
-				{
-					cards.nameCity
-					&& (
-						<div>
-							<h1>{cards.nameCity}</h1>
-							<h3>{cards.data.sys.country}</h3>
-							<h3>
-								{cards.data.main.temp.toFixed(0)}
-								°
-							</h3>
-						</div>
-					)
-				}
-				<Button
-					title='More'
-				/>
+		<>
+			{
+				modalHide
+					? <Modal onClose={closeModal} cardsInfo={cards}/>
+					: null
+			}
+			<div className="cards">
+				<div className='card'>
+					{
+						cards.nameCity
+						&& (
+							<div className='info'>
+								<h1>{cards.nameCity}</h1>
+								<div>
+									<h1>
+										{cards.data.main.temp.toFixed(0)}
+										°
+									</h1>
+									<Button
+										title='More'
+										onClick={openModal}
+									/>
+									<Button
+										title='Delete'
+										onClick={deleteCard.bind(null, cards.id)}
+									/>
+								</div>
+							</div>
+						)
+					}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
