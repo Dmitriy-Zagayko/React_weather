@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Input from '../Input';
 import Button from '../Button';
 import { KEY } from '../helpers/constants';
+import { validationNameCity } from '../helpers/validation';
 import './requestWeather.scss';
 
 const RequestWeather = ({ onCreate }) => {
@@ -10,10 +11,9 @@ const RequestWeather = ({ onCreate }) => {
 
 	const gettingWeather = async (e, nameCity) => {
 		e.preventDefault();
-		if (nameCity.trim()) {
+		if (validationNameCity(nameCity)) {
 			const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${nameCity}&appid=${KEY}&units=metric`);
 			const data = await res.json();
-			console.log(data);
 			onCreate(nameCity, data);
 			setValue('');
 		}
