@@ -7,13 +7,22 @@ import './cityCard.scss';
 const CityCard = ({ cards }) => {
 	const { deleteCard } = useContext(Context);
 	return (
-		<li>
-			{cards.nameCity}
+		<div>
+			{
+				cards.nameCity
+				&& (
+					<div>
+						<p>{cards.nameCity}</p>
+						<p>{cards.data.main.temp.toFixed(0)}</p>
+						<p>{cards.data.sys.country}</p>
+					</div>
+				)
+			}
 			<Button
 				title={'\u00d7'}
 				onClick={deleteCard.bind(null, cards.id)}
 			/>
-		</li>
+		</div>
 	);
 };
 

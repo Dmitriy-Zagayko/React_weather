@@ -17,12 +17,13 @@ const App = () => {
 		localStorage.setItem('cards', JSON.stringify(cards));
 	}, [cards]);
 
-	const addCard = (nameCity) => {
+	const addCard = (nameCity, data) => {
 		setCards(
 			cards.concat([
 				{
 					id: Date.now(),
 					nameCity,
+					data,
 				},
 			]),
 		);
