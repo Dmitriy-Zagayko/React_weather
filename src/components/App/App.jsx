@@ -39,7 +39,7 @@ const App = () => {
 			<RequestWeather onCreate={addCard} />
 			{cards.length
 				? (<ListOfCards cards={cards} />)
-				: (<p>Find city?</p>)}
+				: (<p>Most importantly, what the weather in your home.</p>)}
 		</Context.Provider>
 	);
 };
