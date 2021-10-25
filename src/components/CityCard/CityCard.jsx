@@ -34,7 +34,7 @@ const CityCard = ({ cards }) => {
 								<div>
 									<h1>
 										{cards.data.main.temp.toFixed(0)}
-										°
+										°C
 									</h1>
 									<Button
 										title='More'

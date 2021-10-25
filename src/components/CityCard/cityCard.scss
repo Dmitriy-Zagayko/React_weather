@@ -5,9 +5,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #ada6f0;
+	background-color: rgb(107, 118, 122);
 	text-align: center;
-	color: #ffffff;
+	color: #fff;
 	padding: .5rem 1rem;
 	border: 2px solid #ccc;
 	border-radius: 4px;
@@ -22,10 +22,7 @@
 			width: 55px;
 			height: 30px;
 			padding: 0;
-			background-color: rgb(102, 51, 153, .4);
-			border-radius: 20px;
 			color: #fff;
-			border: none;
 			margin: 1rem;
 	}
 }

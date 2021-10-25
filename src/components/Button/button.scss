@@ -1,5 +1,5 @@
 button {
-    background-color: #0f00af;
+    background-color: rgba(68, 83, 88, 0.9);
     outline: none;
     color: white;
     padding: 10px 30px;
@@ -10,8 +10,10 @@ button {
 		font-size: 14px;
     cursor: pointer;
     transition-duration: .5s;
-    &:hover {
-        background-color: #0b0088;
+    &:hover, :focus {
+        background-color: rgba(47, 64, 70, 0.9);
         transition-duration: .5s;
+				outline: none;
+				color: #DCE3E7;
     }
 }

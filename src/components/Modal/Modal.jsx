@@ -29,22 +29,22 @@ const Modal = ({ onClose, cardsInfo }) => {
 							<li>
 								Temp:&nbsp;
 								{cardsInfo.data.main.temp.toFixed(0)}
-								°
+								°C
 							</li>
 							<li>
 								Feels like:&nbsp;
 								{cardsInfo.data.main.feels_like.toFixed(0)}
-								°
+								°C
 							</li>
 							<li>
 								Min temp:&nbsp;
 								{cardsInfo.data.main.temp_min.toFixed(0)}
-								°
+								°C
 							</li>
 							<li>
 								Max temp:&nbsp;
 								{cardsInfo.data.main.temp_max.toFixed(0)}
-								°
+								°C
 							</li>
 							<li>
 								Pressure:&nbsp;

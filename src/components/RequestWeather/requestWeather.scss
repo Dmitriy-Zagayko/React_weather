@@ -1,3 +1,20 @@
 .requestWeather {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 1rem 0;
+	& button {
+		height: 40px;
+		margin: .5rem;
+		padding: 5px;
+		border: 2px solid #54535f;
+		}
+	& input {
+		height: 40px;
+		border: none;
+		padding: 0 10px;
+		margin: 0;
+		width: 240px;
+		vertical-align: middle;
+	}
 }
