@@ -1,13 +1,16 @@
 input {
 		padding: 10px 10px;
-		background: #0f00af;
+		background: rgba(68, 83, 88, 0.9);
 		border-radius: 7px;
 		outline: none;
 		border: none;
-		color: white;
+		color: #DCE3E7;
 		font-size: 14px;
 		min-width: 190px;
 		&::placeholder {
-			color: #ccc;
-	}
+			color: #fff;
+		}
+		&:focus {
+		background: rgba(47, 64, 70, 0.9);
+		}
 }

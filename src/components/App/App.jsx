@@ -1,35 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import ListOfCards from '../ListOfCards';
 import Context from '../helpers/context';
-import AddCityCard from '../AddCityCard/AddCityCard';
+import RequestWeather from '../RequestWeather/RequestWeather';
 import './app.scss';
 
 const App = () => {
-	const [cards, setCards] = useState([
-		{ id: 1, nameCity: 'Kharkiv' },
-		{ id: 2, nameCity: 'Kiev' },
-	]);
+	const [cards, setCards] = useState([]);
 
-	const deleteCard = (id) => {
-		setCards(cards.filter((card) => card.id !== id));
-	};
+	useEffect(() => {
+		const card = localStorage.getItem('cards') || [];
+		setCards(JSON.parse(card));
+	}, []);
 
-	const addCard = (nameCity) => {
+	useEffect(() => {
+		localStorage.setItem('cards', JSON.stringify(cards));
+	}, [cards]);
+
+	const addCard = (nameCity, data) => {
 		setCards(
 			cards.concat([
 				{
 					id: Date.now(),
 					nameCity,
+					data,
 				},
 			]),
 		);
 	};
 
+	const deleteCard = (id) => {
+		setCards(cards.filter((card) => card.id !== id));
+	};
+
 	return (
 		<Context.Provider value={{ deleteCard }}>
 			<Header />
-			<AddCityCard onCreate={addCard} />
+			<RequestWeather onCreate={addCard} />
 			{cards.length
 				? (<ListOfCards cards={cards} />)
 				: (<p>Find city?</p>)}

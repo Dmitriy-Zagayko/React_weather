@@ -1,18 +1,28 @@
-li {
+.cards {
+	display:inline-block;
+}
+.card {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
+	background-color: rgb(107, 118, 122);
+	text-align: center;
+	color: #fff;
 	padding: .5rem 1rem;
 	border: 2px solid #ccc;
 	border-radius: 4px;
 	margin: .5rem 0;
+	width: 200px;
+	height: 200px;
+}
+.info{
+	width: 100%;
+	height: 100%;
 	& button {
-		width: 25px;
-		height: 25px;
-		padding: 0;
-		background-color: rebeccapurple;
-		border-radius: 20px;
-		color: #fff;
-		border: none;
+			width: 55px;
+			height: 30px;
+			padding: 0;
+			color: #fff;
+			margin: 1rem;
 	}
 }
