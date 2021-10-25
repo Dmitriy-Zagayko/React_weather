@@ -1,10 +1,10 @@
 import React from 'react';
+import { icons } from '../helpers/constants';
 import './header.scss';
-import logo from '../../../public/assets/images/logo.png';
 
 const Header = () => (
 	<header>
-		<img src={logo} />
+		<img src={icons.headerLogo} />
 		<h1>Weather forecast</h1>
 	</header>
 );
