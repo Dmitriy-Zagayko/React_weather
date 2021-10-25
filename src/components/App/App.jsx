@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import ListOfCards from '../ListOfCards';
 import Context from '../helpers/context';
-import AddCityCard from '../AddCityCard/AddCityCard';
+import RequestWeather from '../RequestWeather/RequestWeather';
 import './app.scss';
 
 const App = () => {
@@ -17,12 +17,13 @@ const App = () => {
 		localStorage.setItem('cards', JSON.stringify(cards));
 	}, [cards]);
 
-	const addCard = (nameCity) => {
+	const addCard = (nameCity, data) => {
 		setCards(
 			cards.concat([
 				{
 					id: Date.now(),
 					nameCity,
+					data,
 				},
 			]),
 		);
@@ -35,7 +36,7 @@ const App = () => {
 	return (
 		<Context.Provider value={{ deleteCard }}>
 			<Header />
-			<AddCityCard onCreate={addCard} />
+			<RequestWeather onCreate={addCard} />
 			{cards.length
 				? (<ListOfCards cards={cards} />)
 				: (<p>Find city?</p>)}
